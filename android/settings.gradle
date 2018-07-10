@@ -1,0 +1,3 @@
+rootProject.name = 'testKumparan'
+
+include ':app'
