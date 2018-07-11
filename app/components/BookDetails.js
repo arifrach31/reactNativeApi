@@ -49,7 +49,7 @@ const BookDetails = (props) => (
           <Col size={75}><Text style={styles.textDetail}>: {props.booksDetail.publisher}</Text></Col>
         </Row>
         <Row>
-          <Col size={25}><Text style={styles.textDetail}>Rank :</Text></Col>
+          <Col size={25}><Text style={styles.textDetail}>Rank </Text></Col>
           <Col size={75}>
               <View style={{flexDirection: 'row'}}>
                   <Text style={styles.textDetail}>: </Text>
