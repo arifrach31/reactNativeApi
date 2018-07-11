@@ -5,9 +5,7 @@ import { Content, Text } from 'native-base'
 
 const { width, height } = Dimensions.get('window')
 
-const Menus = (props) => {
-  console.log('props: ',props)
-  return(
+const Menus = (props) => (
   <Content style={styles.content}>
     <TouchableOpacity onPress={props.menuText === 'About Me' ? ()=>{ Linking.openURL('https://www.linkedin.com/in/arifrach/')} : props.action}>
       <Image source={props.image} style={styles.image} resizeMode="contain"/>
@@ -16,7 +14,7 @@ const Menus = (props) => {
       </View>
     </TouchableOpacity>
   </Content>
-)}
+)
 
 const styles = StyleSheet.create({
   content: {
