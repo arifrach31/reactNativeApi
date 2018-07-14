@@ -1,12 +1,13 @@
 import React from 'react'
-import { StyleSheet, Text, StatusBar } from 'react-native'
+import { StyleSheet, Image, StatusBar } from 'react-native'
 import { Container } from 'native-base'
+import logo from '../assets/logo.png'
 
 const Splash = () => (
   <Container style={styles.container}>
     <StatusBar
       backgroundColor="#00A1DD" />
-    <Text>Arifrach</Text>
+    <Image source={logo} style={styles.logo} resizeMode="contain" />
   </Container>
 )
 
@@ -17,8 +18,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   logo: {
-    width: 260,
-    height: 80
+    width: 200,
+    height: 150
   },
 })
 

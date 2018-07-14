@@ -25,7 +25,7 @@ class InformationContainer extends Component {
               iconGoback='arrow-back'
             />
             <Content style={styles.content}>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                     <Text style={styles.text}>This App using public api from </Text>
                     <TouchableOpacity onPress={ ()=>{ Linking.openURL('http://developer.nytimes.com')}}>
                         <Text style={styles.textLinkDetail}>http://developer.nytimes.com</Text>

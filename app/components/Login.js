@@ -11,6 +11,7 @@ const Login = (props) => (
     />
     <View style={styles.headerLogin}>
       <Text style={styles.titleText}>ARIFRACH</Text>
+      <Text style={styles.descriptionText}>PORTFOLIO #1</Text>
     </View>
     <View style={styles.formLogin}>
       <Item regular style={styles.item}>
@@ -30,9 +31,9 @@ const Login = (props) => (
           onChangeText={props.onChangePassword} />
       </Item>
       {props.renderButtons}
-      <Text>Don't have any account?</Text>
-      <TouchableOpacity style={{ alignSelf: 'center' }} onPress={props.navigateToRegister}>
-        <Text style={{ alignSelf: 'center', fontSize: 12, color: '#00A1DD' }}>Please, Sign Up</Text>
+      <Text>Don't have account? Cekidot!</Text>
+      <TouchableOpacity style={{ alignSelf: 'center' }} onPress={() => alert('Sign Up Under')}>
+        <Text style={{ alignSelf: 'center', fontSize: 12, color: '#00A1DD' }}>Email: admin@admin.com | Password: admin</Text>
       </TouchableOpacity>
     </View>
   </Container>
@@ -52,10 +53,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     justifyContent: "center",
   },
-  logo: {
-    width: 170,
-    height: 53
-  },
   headerLogin: {
     backgroundColor: '#00A1DD',
     height: 170,
@@ -68,11 +65,15 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   titleText: {
-    fontFamily: "avenir",
-    margin: 10,
     color: '#FFF',
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 22,
+    letterSpacing: 1
+  },
+  descriptionText: {
+    color: '#2A2A2A',
+    fontWeight: 'bold',
+    fontSize: 10,
     letterSpacing: 1
   },
   formLogin: {
