@@ -6,6 +6,7 @@ import SearchBooksContainer from './app/containers/SearchBooksContainer'
 import BookDetailContainer from './app/containers/BookDetailContainer'
 import InformationContainer from './app/containers/InformationContainer'
 import SplashContainer from './app/containers/SplashContainer'
+import LoginContainer from './app/containers/LoginContainer'
 
 const AppNavigator = StackNavigator(
     {
@@ -15,7 +16,8 @@ const AppNavigator = StackNavigator(
         SearchBooksContainer: { screen: SearchBooksContainer },
         ArticleDetailContainer: { screen: ArticleDetailContainer },
         BookDetailContainer: { screen: BookDetailContainer },
-        InformationContainer: { screen: InformationContainer}
+        InformationContainer: { screen: InformationContainer},
+        LoginContainer: { screen: LoginContainer}
     }, {
         initialRouteName: 'SplashContainer',
         headerMode: 'none'

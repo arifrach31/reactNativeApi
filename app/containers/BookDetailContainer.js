@@ -20,11 +20,18 @@ class BookDetailContainer extends Component {
     })
   }
 
+  handleGoback(){
+    this.props.navigation.goBack()
+  }
+
   render() {
     return (
       <BookDetails
         books={this.state.books}
         booksDetail={this.state.booksDetail}
+
+        handleGoback={() => this.handleGoback()}
+        iconGoback='arrow-back'
       />
     )
   }

@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { AsyncStorage } from 'react-native'
-import { NavigationAction } from 'react-navigation'
 import { connect } from 'react-redux'
 import { login } from '../actions/login'
 import Splash from '../components/Splash'
@@ -15,28 +14,17 @@ class SplashContainer extends PureComponent {
 
   navigateToLogin(){
     setTimeout(() => {
-      this.props.navigation.navigate("HomeContainer");
-    }, 1000)
-  }
-  
-  navigateToUploadImage(data){
-    setTimeout(() => {
-      this.props.navigation.navigate("UploadImageContainer", {user: data});
+      this.props.navigation.navigate("LoginContainer");
     }, 1000)
   }
 
   async componentDidMount(){
     const session = await AsyncStorage.getItem('session')
     const data = await JSON.parse(session)
-    console.log(data)
     if(data !== null){
       try{
         await this.props.login(data.email, data.password)
-        if(data.avatar_url == null || data.avatar_url == '' || data.avatar_url == 'undefined' ){
-          this.navigateToUploadImage(data)
-        }else{
-          this.navigateToHome()
-        }
+        this.navigateToHome()
       }catch(e){
         alert(e)
       }

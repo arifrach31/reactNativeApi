@@ -10,6 +10,8 @@ const ArticleDetails = (props) => (
   <Container style={styles.container}>
     <NavbarHome
       title="Article Details"
+      iconGoback={props.iconGoback}
+      handleGoback={props.handleGoback}
     />
     <StatusBar
       backgroundColor="#00a1dd"

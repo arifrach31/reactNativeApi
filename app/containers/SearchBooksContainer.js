@@ -26,6 +26,10 @@ class SearchBooksContainer extends Component {
     await this.setState({ resultText: this.state.listname })
   }
 
+  handleGoback(){
+    this.props.navigation.goBack()
+  }
+
   render() {
     return (
       <SearchingBooks
@@ -34,6 +38,9 @@ class SearchBooksContainer extends Component {
         loading={this.props.loading}
         success={this.props.success}
         resultText={this.state.resultText}
+
+        handleGoback={() => this.handleGoback()}
+        iconGoback='arrow-back'
 
         btnSearchEbookFiction={() => this.btnSearchEbookFiction()}
         btnSearchHardcoverFiction={() => this.btnSearchHardcoverFiction()}

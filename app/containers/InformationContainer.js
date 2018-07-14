@@ -12,11 +12,18 @@ class InformationContainer extends Component {
       super()
   }
 
+  handleGoback(){
+    this.props.navigation.goBack()
+  }
+
   render() {
     return (
         <Container style={{backgroundColor: '#FFFFFF'}}>
             <NavbarHome
-            title="Information"/>
+              title="Information"
+              handleGoback={() => this.handleGoback()}
+              iconGoback='arrow-back'
+            />
             <Content style={styles.content}>
                 <View style={{flexDirection: 'row'}}>
                     <Text style={styles.text}>This App using public api from </Text>

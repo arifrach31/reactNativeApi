@@ -10,6 +10,8 @@ const SearchingArticles = (props) => (
   <Container style={styles.container}>
     <NavbarHome
       title={props.title}
+      iconGoback={props.iconGoback}
+      handleGoback={props.handleGoback}
     />
     <StatusBar
       backgroundColor="#00a1dd"

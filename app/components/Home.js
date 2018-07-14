@@ -8,12 +8,12 @@ import NavbarHome from '../particles/NavbarHome'
 const { height } = Dimensions.get('window')
 const bannerWidth = Dimensions.get('window').width
 
-const Home = (props) => {
-  {console.log('props: ', props)}
-  return(
+const Home = (props) => (
   <Container style={styles.container}>
     <NavbarHome
       title={props.title}
+      iconLogout='exit'
+      handleLogout={props.handleLogout}
     />
     <StatusBar
       backgroundColor="#00a1dd"
@@ -30,7 +30,7 @@ const Home = (props) => {
         renderItem={props.renderMenusButton} />
     </Content>
   </Container>
-)}
+)
 
 const styles = StyleSheet.create({
   container: {

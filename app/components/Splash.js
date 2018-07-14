@@ -5,7 +5,7 @@ import { Container } from 'native-base'
 const Splash = () => (
   <Container style={styles.container}>
     <StatusBar
-      backgroundColor="#f85859" />
+      backgroundColor="#00A1DD" />
     <Text>Arifrach</Text>
   </Container>
 )

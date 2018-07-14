@@ -20,11 +20,18 @@ class ArticleDetailContainer extends Component {
     })
   }
 
+  handleGoback(){
+    this.props.navigation.goBack()
+  }
+
   render() {
     return (
       <ArticleDetails
         articles={this.state.articles}
         headline={this.state.headline}
+
+        handleGoback={() => this.handleGoback()}
+        iconGoback='arrow-back'
       />
     )
   }

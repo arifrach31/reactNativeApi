@@ -16,19 +16,13 @@ export const login = (email, password) => {
 				body: JSON.stringify({email, password})
 			})
 			const data = await response.json()
-			if (data.code === 401 && data.name === 'error') {
-				await dispatch(setFailed(true, 'FAILED_PROCESS_LOGIN', data.message))
-                await dispatch(setLoading(false, 'LOADING_PROCESS_LOGIN'))
-                await dispatch(saveSession({ email, password }))
-			    await dispatch(saveSessionPersistance({...data.data[0], accessToken	}))
-			} else {
-				await dispatch(fetchUserWithEmail(email, password, data.tokens.accessToken, data.tokens.users_id, data.tokens.avatar_url, data.tokens.first_name))
-				await dispatch(setSuccess(true, 'SUCCESS_PROCESS_LOGIN'))
-				await dispatch(setLoading(false, 'LOADING_PROCESS_LOGIN'))
-			}
+			await dispatch(saveSession({ email, password }))
+			await dispatch(setSuccess(true, 'SUCCESS_PROCESS_LOGIN'))
+			await dispatch(setLoading(false, 'LOADING_PROCESS_LOGIN'))
 		} catch (e) {
-			dispatch(setFailed(true, 'FAILED_PROCESS_LOGIN', e))
-			dispatch(setLoading(false, 'LOADING_PROCESS_LOGIN'))
+			await dispatch(setSuccess(false, 'SUCCESS_PROCESS_LOGIN'))
+			await dispatch(setFailed(true, 'FAILED_PROCESS_LOGIN', e))
+			await dispatch(setLoading(false, 'LOADING_PROCESS_LOGIN'))
 		}
 	}
 }

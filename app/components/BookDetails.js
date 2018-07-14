@@ -12,6 +12,8 @@ const BookDetails = (props) => (
   <Container style={styles.container}>
     <NavbarHome
       title="Book Details"
+      iconGoback={props.iconGoback}
+      handleGoback={props.handleGoback}
     />
     <StatusBar
       backgroundColor="#00a1dd"

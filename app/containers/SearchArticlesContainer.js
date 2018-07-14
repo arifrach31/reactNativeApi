@@ -23,6 +23,10 @@ class SearchArticlesContainer extends Component {
     await this.setState({ resultText: searchArticles + ' - ' + sortby })
   }
 
+  handleGoback(){
+    this.props.navigation.goBack()
+  }
+
   render() {
     return (
       <SearchingArticles
@@ -33,6 +37,9 @@ class SearchArticlesContainer extends Component {
         success={this.props.success}
         sortby={this.state.sortby}
         resultText={this.state.resultText}
+
+        handleGoback={() => this.handleGoback()}
+        iconGoback='arrow-back'
 
         onChangeSearchText={(searchText) => this.setState({searchText})}
         onValueChangeSortBy={(sortby) => this.setState({sortby})}
