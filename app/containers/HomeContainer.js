@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import OneSignal from 'react-native-onesignal'
+import { Dimensions, StyleSheet, Image, View } from 'react-native'
 
 import Home from '../components/Home'
 import Menus from '../particles/Menus'
+import { fetchBanners } from '../actions/banners'
 
 const dataMenus = [
   {
@@ -30,6 +32,10 @@ const dataMenus = [
     action: 'InformationContainer'
   }
 ]
+
+const { height } = Dimensions.get('window')
+const bannerWidth = Dimensions.get('window').width
+const bannerHeight = height / 2.8
 
 class HomeContainer extends Component {
 
@@ -58,16 +64,28 @@ class HomeContainer extends Component {
     console.log('openResult: ', openResult);
   }
   
-
   onIds(device) {
   console.log('Device info: ', device);
   }
 
+  renderBanners(banner, index) {
+    return (
+      <View key={index} style={styles.banner}>
+        <Image style={styles.bannerImage} source={{ uri: banner.banner_url }} />
+      </View>
+    )
+  }
+
+  async componentDidMount(){
+    await this.props.fetchBanners()
+  }
+
   render() {
+    const { banners } = this.props
     return (
       <Home
         title="Portfolio #1"
-        
+        banners={banners.map((banner, index) => this.renderBanners(banner, index))}
         dataMenusButton={dataMenus}
         renderMenusButton={({ item }) => (
           <Menus 
@@ -82,9 +100,20 @@ class HomeContainer extends Component {
   }
 }
 
-const mapDispatchToProps = () =>{
+const styles = StyleSheet.create({
+  banner: {
+    backgroundColor: '#000'
+  },
+  bannerImage: {
+    width: bannerWidth,
+    height: bannerHeight,
+    opacity: 1
+  }
+})
+
+const mapDispatchToProps = (dispatch) =>{
   return{
-    
+    fetchBanners: () => dispatch(fetchBanners())
   }
 }
 
@@ -92,7 +121,8 @@ const mapStateToProps = (state) => {
   return{
     loading: state.loading,
     success: state.success,
-    failed: state.failed
+    failed: state.failed,
+    banners: state.banners
   }
 }
 

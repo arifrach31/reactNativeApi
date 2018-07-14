@@ -3,3 +3,4 @@ export const SET_SUCCESS = "SET_SUCCESS";
 export const SET_FAILED = "SET_FAILED";
 export const RECEIVE_ARTICLES = "RECEIVE_ARTICLES";
 export const RECEIVE_BOOKS = "RECEIVE_BOOKS";
+export const RECEIVED_BANNERS = "RECEIVED_BANNERS";
