@@ -2,7 +2,7 @@ import { setLoading, setFailed, setSuccess } from './processor'
 import { RECEIVED_BANNERS } from '../constants'
 import { API_BANNERS } from '../env'
 
-export const fetchBanners = (accessToken) => {
+export const fetchBanners = () => {
   return async dispatch => {
     await dispatch(setLoading(true, 'LOADING_FETCH_BANNERS'))
     try {
@@ -10,8 +10,7 @@ export const fetchBanners = (accessToken) => {
         method: 'GET',
         headers: {
           Accept: 'application/json',
-          'Content-Type': 'application/json',
-          Authorization: accessToken
+          'Content-Type': 'application/json'
         }
       })
       const data = await response.json()
